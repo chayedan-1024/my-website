@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+
+<canvas id="myCanvas" width="500" height="500" style="border:1px solid #c3c3c3;"
+onmousemove="cnvs_getCoordinates(event)" onmouseout="cnvs_clear()">
+Your browser does not support the canvas element.
+</canvas>
+<div id="xycoordinates" ></div>
+
+
+<script type="text/javascript">
+
+var c=document.getElementById("myCanvas");
+var cxt=c.getContext("2d");
+// 脸
+cxt.arc(250, 250, 100, 0, 2 * Math.PI)
+// 左眼睛
+cxt.moveTo(240, 220)
+cxt.arc(215, 220, 25, 0, 2 * Math.PI)
+// 右眼睛
+cxt.moveTo(310, 220)
+cxt.arc(285, 220, 25, 0, 2 * Math.PI)
+// 鼻子
+cxt.moveTo(260, 250)
+cxt.arc(250, 250, 10, 0, 2 * Math.PI)
+
+
+// 中缝
+cxt.moveTo(250, 260)
+cxt.lineTo(250, 280)
+
+// 左上嘴唇
+cxt.moveTo(248, 280)
+cxt.arc(238, 232, 50, 0.4 * Math.PI, 0.7 * Math.PI)
+
+// 右上嘴唇
+cxt.moveTo(292, 273)
+cxt.arc(262, 232, 50, 0.3 * Math.PI, 0.6 * Math.PI)
+
+//下嘴唇
+cxt.moveTo(298, 273)
+cxt.arc(250, 255, 50, 0.1 * Math.PI, 0.9 * Math.PI)
+
+// 左耳朵
+cxt.moveTo(160, 210)
+cxt.arc(250, 125, 125, 0.76 * Math.PI, Math.PI)
+cxt.moveTo(125, 125)
+cxt.arc(125, 250, 125, 1.5 * Math.PI, 1.74 * Math.PI)
+
+// 右耳朵
+cxt.moveTo(375, 125)
+cxt.arc(250, 125, 125, 0, 0.24 * Math.PI)
+cxt.moveTo(290, 161)
+cxt.arc(375, 250, 125, 1.26 * Math.PI, 1.5 * Math.PI)
+
+/*
+// 辅助线
+cxt.moveTo(0, 250)
+cxt.lineTo(500, 250)
+cxt.moveTo(250, 0)
+cxt.lineTo(250, 500)
+cxt.moveTo(0, 0)
+cxt.lineTo(500, 500)
+cxt.moveTo(500, 0)
+cxt.lineTo(0, 500)
+cxt.moveTo(0, 125)
+cxt.lineTo(500, 125)
+cxt.moveTo(0, 375)
+cxt.lineTo(500, 375)
+cxt.moveTo(125, 0)
+cxt.lineTo(125, 500)
+cxt.moveTo(375, 0)
+cxt.lineTo(375, 500)
+*/
+cxt.stroke()
+
+function cnvs_getCoordinates(e) 
+{
+x = e.clientX;
+y = e.clientY;
+document.getElementById("xycoordinates").innerHTML="coordinates: (" + x + ", " + y + ")";
+}
+
+function cnvs_clear() 
+{
+document.getElementById("xycoordinates").innerHTML="";
+}
+</script>
+
+</body>
+</html>
+
+
